@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Việt Nam – 9 Bản Hùng Văn – Đọc sách</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --paper: #faf8f5;
+      --text: #2c1810;
+      --bg1: #e0d8cc;
+      --bg2: #d1c4b2;
+      --accent: #c0a080;
+      --accent2: #a08060;
+      --page-ratio: .72;
+      --page-height: calc(100vh - 180px);
+      --fs: 19px;
+      --lh: 1.8;
+      --ff: 'Lora', 'Crimson Text', Georgia, serif;
+      --ff-hd: 'Playfair Display', serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap');
+
+    body {
+      font-family: var(--ff);
+      background: var(--bg1);
+      background-image: radial-gradient(circle at 50% 50%, var(--bg1) 0%, var(--bg2) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 10px 20px;
+      color: var(--text);
+      overflow-x: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hdr {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 45px;
+      z-index: 450;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(44, 24, 16, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+    }
+
+    .hdr h1 {
+      font-family: var(--ff-hd);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .tb {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 500;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .85rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      width: fit-content;
+      justify-content: center
+    }
+
+    .tb::-webkit-scrollbar {
+      height: 6px
+    }
+
+    .tb::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .18);
+      border-radius: 999px
+    }
+
+    .tg {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap
+    }
+
+    .tl {
+      font-weight: 600;
+      color: #666
+    }
+
+    .tb button {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: .8rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(192, 160, 128, 0.25)
+    }
+
+    .tb button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(192, 160, 128, 0.35);
+      filter: brightness(1.1)
+    }
+
+    .tb button.on {
+      background: #e74c3c;
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25)
+    }
+
+    .tb select {
+      padding: 6px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      font-size: .8rem;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      background: #fff;
+      outline: none
+    }
+
+    .home-a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #2c1810;
+      color: #fff;
+      font-size: .9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s
+    }
+
+    .home-a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2)
+    }
+
+    #fsz {
+      min-width: 40px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--accent2);
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .np {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 290px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, .2);
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .3s;
+      font-family: 'Open Sans', sans-serif
+    }
+
+    .np.open {
+      transform: none
+    }
+
+    .np-hdr {
+      padding: 16px 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .np-hdr h3 {
+      font-size: .95rem;
+      font-weight: 700
+    }
+
+    .np-hdr button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer
+    }
+
+    .np-inp {
+      padding: 14px;
+      border-bottom: 1px solid #eee
+    }
+
+    .np-inp textarea {
+      width: 100%;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      padding: 9px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .82rem;
+      resize: vertical;
+      min-height: 70px
+    }
+
+    .np-inp textarea:focus {
+      outline: none;
+      border-color: var(--accent)
+    }
+
+    .np-add {
+      margin-top: 8px;
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: .82rem
+    }
+
+    .np-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 14px
+    }
+
+    .ni .np-pg:hover {
+      opacity: .82
+    }
+
+    .ni {
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid #e8ecff;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #f8f9ff;
+      position: relative;
+    }
+
+    .ni:hover {
+      background: #f0f2ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .ni.is-bookmark {
+      background: #fffcf0;
+      border-color: #ffe082
+    }
+
+    .ni.is-bookmark:hover {
+      background: #fff8e1;
+    }
+
+    .ni.editing {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+      background: #fff;
+    }
+
+    .ni-icon {
+      font-size: 1.1rem;
+      color: var(--accent)
+    }
+
+    .ni .nd {
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .ni .nd:hover {
+      color: var(--accent2)
+    }
+
+    .ni .nd[title="Xóa"]:hover {
+      color: #e74c3c
+    }
+
+    .nd-name {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nd-name:hover {
+      filter: brightness(1.1);
+      transform: scale(1.05);
+    }
+
+    .np-pg {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: .65rem;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.05);
+      color: #666;
+    }
+
+    .nn {
+      color: #aaa;
+      font-size: .82rem;
+      text-align: center;
+      padding: 18px 0
+    }
+
+    .bc {
+      width: min(calc(var(--page-height) * 1.4 + 60px), 98vw);
+      perspective: 1500px
+    }
+
+    .bw {
+      display: flex;
+      width: 100%;
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+      position: relative
+    }
+
+    .bw.single .lp {
+      display: none
+    }
+
+    .bw.single .rp {
+      width: auto;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2)
+    }
+
+    .bw.single .rp::before {
+      display: none
+    }
+
+    .bw:not(.single)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05) 50%, rgba(255, 255, 255, 0.1) 51%, rgba(0, 0, 0, 0.1));
+      z-index: 10;
+      pointer-events: none;
+      transform: translateX(-50%)
+    }
+
+    .lp,
+    .rp {
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      border: none;
+      border-radius: 4px 20px 20px 4px;
+      box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.15), inset 0 0 100px rgba(0, 0, 0, 0.02);
+      flex: 0 0 auto;
+      height: var(--page-height);
+      aspect-ratio: var(--page-ratio);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: 5
+    }
+
+    .lp {
+      border-radius: 20px 4px 4px 20px;
+      box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.15), inset 0 0 100px rgba(0, 0, 0, 0.02)
+    }
+
+    .lp::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.15), transparent);
+      z-index: 2;
+      pointer-events: none
+    }
+
+    .rp::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.15), transparent);
+      z-index: 2;
+      pointer-events: none
+    }
+
+    .pc {
+      flex: 1;
+      padding: 60px 70px 60px 80px;
+      font-size: var(--fs);
+      line-height: var(--lh);
+      color: var(--text);
+      overflow-y: auto;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      user-select: none;
+      -webkit-user-select: none;
+      position: relative;
+      scrollbar-width: none
+    }
+
+    .pc::-webkit-scrollbar {
+      display: none
+    }
+
+    .rp .pc {
+      padding: 60px 80px 60px 70px
+    }
+
+    body.hl .pc {
+      user-select: text;
+      -webkit-user-select: text;
+      cursor: text
+    }
+
+    .pc p {
+      margin: 0 0 1.2em;
+      text-indent: 2em;
+      font-weight: 400
+    }
+
+    .pc .ni2 {
+      text-indent: 0
+    }
+
+    .pc .ch {
+      font-family: var(--ff-hd);
+      font-size: 1.35em;
+      font-weight: 900;
+      text-align: center;
+      display: block;
+      text-indent: 0;
+      margin: 1em 0 1.5em;
+      letter-spacing: 1px;
+      color: #000;
+      position: relative;
+      padding-bottom: 15px
+    }
+
+    .pc .ch::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.3
+    }
+
+    .pc .sh {
+      font-family: var(--ff-hd);
+      font-size: 1.25em;
+      font-weight: 700;
+      text-indent: 0;
+      display: block;
+      margin: 1.5em 0 0.8em;
+      color: var(--accent2)
+    }
+
+    .pc .dial {
+      text-indent: 0;
+      padding-left: 1.5em;
+      font-style: italic;
+      opacity: 0.9
+    }
+
+    .pc .center-p {
+      text-align: center !important;
+      text-indent: 0;
+      margin: 1em 0
+    }
+
+    .pc .han {
+      font-family: 'PMingLiU', 'MingLiU', 'SimSun', 'STSong', serif;
+      text-indent: 0;
+      letter-spacing: .12em;
+      line-height: 1.6;
+      margin: .5em 0;
+      font-size: 1.15em;
+      opacity: 0.85
+    }
+
+    .pc .han.center-p {
+      text-align: center !important
+    }
+
+    .han-inline {
+      font-family: 'PMingLiU', 'MingLiU', 'SimSun', 'STSong', serif;
+      letter-spacing: .06em
+    }
+
+    .pc .poem {
+      text-align: center !important;
+      text-indent: 0;
+      font-style: italic;
+      margin: 1.5em 0;
+      line-height: 1.6;
+      color: var(--accent2);
+      font-size: 1.05em
+    }
+
+    .pc .img-wrap {
+      margin: 2em auto;
+      text-align: center;
+      text-indent: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative
+    }
+
+    .pc .img-wrap img {
+      max-width: 90%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+      border: 8px solid #fff
+    }
+
+    .pc .img-wrap.img-portrait img {
+      max-width: 55%
+    }
+
+    .pc .img-caption {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75em;
+      color: #8c7b6a;
+      text-indent: 0;
+      margin: -1em 0 2em;
+      font-style: italic;
+      line-height: 1.5;
+      padding: 0 15%;
+      opacity: 0.8
+    }
+
+    .pc .vid-wrap {
+      margin: 2em auto;
+      text-indent: 0;
+      width: 100%
+    }
+
+    .pc .vid-wrap video {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+      display: block
+    }
+
+    .pc .aud-wrap {
+      margin: 2em auto;
+      text-indent: 0;
+      width: 100%
+    }
+
+    .pc .aud-wrap audio {
+      width: 100%;
+      border-radius: 100px;
+      display: block
+    }
+
+    .pc sup.fn-ref {
+      font-size: .72em;
+      line-height: 0;
+      vertical-align: super;
+      font-weight: 700;
+      color: var(--accent2)
+    }
+
+    .pc .fn-block {
+      margin-top: 1.3em;
+      padding-top: .9em;
+      border-top: 1px solid rgba(0, 0, 0, .14);
+      text-indent: 0
+    }
+
+    .pc .fn-item {
+      display: flex;
+      gap: .4em;
+      align-items: baseline;
+      margin: 0 0 .45em;
+      text-indent: 0;
+      font-size: calc(var(--fs) - 3px);
+      line-height: 1.65
+    }
+
+    .pc .fn-num {
+      flex: 0 0 auto;
+      font-size: .78em;
+      font-weight: 700;
+      color: var(--accent2);
+      vertical-align: super;
+      line-height: 0;
+      display: inline-block
+    }
+
+    .pc .fn-text {
+      flex: 1
+    }
+
+    .pc .fn-cont {
+      margin: .3em 0 0;
+      text-indent: 0
+    }
+
+    .pc.cov {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e1b4b, #1a3a5f);
+      overflow: hidden
+    }
+
+    .pc.cov img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      display: block
+    }
+
+    .pc.info-pg {
+      display: flex;
+      flex-direction: column;
+      padding: 60px 80px 30px;
+      position: relative;
+      text-align: left;
+      overflow-y: auto
+    }
+
+    .info-pg-content {
+      margin-top: auto;
+      width: 100%
+    }
+
+    .pc.info-pg::before,
+    .pc.info-pg::after,
+    .pc.info-pg .corner-tl,
+    .pc.info-pg .corner-tr {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-color: #ccc;
+      border-style: solid;
+      opacity: 0.6
+    }
+
+    .pc.info-pg .corner-tl {
+      top: 40px;
+      left: 40px;
+      border-width: 1px 0 0 1px
+    }
+
+    .pc.info-pg .corner-tr {
+      top: 40px;
+      right: 40px;
+      border-width: 1px 1px 0 0
+    }
+
+    .pc.info-pg::before {
+      bottom: 40px;
+      left: 40px;
+      border-width: 0 0 1px 1px
+    }
+
+    .pc.info-pg::after {
+      bottom: 40px;
+      right: 40px;
+      border-width: 0 1px 1px 0
+    }
+
+    .info-line {
+      border: none;
+      border-top: 1.5px solid #333;
+      margin: 20px 0;
+      width: 100%
+    }
+
+    .pc.info-pg p {
+      text-indent: 0;
+      margin: 0 0 0.5em;
+      font-size: 0.95em;
+      line-height: 1.6
+    }
+
+    .cov-ph {
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+      font-family: 'Open Sans', sans-serif
+    }
+
+    .pc.inner-title {
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      overflow-y: auto
+    }
+
+    .it-author {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.05em;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      color: #111
+    }
+
+    .it-img {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 0;
+      width: 100%
+    }
+
+    .it-img img {
+      max-width: 82%;
+      max-height: 100%;
+      object-fit: contain
+    }
+
+    .it-pub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: .8em;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-align: center;
+      text-transform: uppercase;
+      color: #111
+    }
+
+    .cov-ph .ico {
+      font-size: 4rem;
+      margin-bottom: 16px
+    }
+
+    .cov-ph h2 {
+      font-size: 1.3rem;
+      line-height: 1.5;
+      margin-bottom: 8px
+    }
+
+    .cov-ph p {
+      font-size: .85rem;
+      opacity: .65
+    }
+
+    .pc.toc-pg {
+      text-align: left
+    }
+
+    .toc-h {
+      font-size: 1.25em;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      text-indent: 0;
+      margin-bottom: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #000;
+    }
+
+    .ti {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      margin: 0;
+      padding: 8px 0;
+      font-size: 1em;
+      text-indent: 0;
+      transition: background 0.2s;
+    }
+
+    .ti[onclick] {
+      cursor: pointer;
+    }
+
+    .ti[onclick]:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .ti.ch-row {
+      font-weight: 700;
+      font-size: .95em;
+      margin-top: .45em
+    }
+
+    .ti.l2 {
+      padding-left: 14px
+    }
+
+    .ti.l3 {
+      padding-left: 28px
+    }
+
+    .td {
+      flex: 1;
+      border-bottom: 1.5px dotted #999;
+      margin: 0 6px;
+      transform: translateY(-4px)
+    }
+
+    .tp {
+      flex-shrink: 0;
+      font-size: 1em;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .pn {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .72rem;
+      color: #aaa;
+      padding: 8px;
+      letter-spacing: .5px
+    }
+
+    .pn:empty {
+      display: none
+    }
+
+    .lp .pn {
+      text-align: left;
+      padding-left: 58px
+    }
+
+    .rp .pn {
+      text-align: right;
+      padding-right: 58px
+    }
+
+    mark.hl {
+      background: linear-gradient(120deg, #ffd700, #ffec6e);
+      border-radius: 2px;
+      padding: 0 1px
+    }
+
+    .fn-highlight {
+      background: rgba(255, 235, 59, 0.5);
+      transition: background 1.5s ease;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+
+    .fn-ref {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .fn-ref:hover {
+      color: #e67e00;
+      text-decoration: underline;
+    }
+
+    .ctrl {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .ctrl button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      color: #2c1810;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05)
+    }
+
+    .ctrl button:hover:not(:disabled) {
+      background: #2c1810;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1)
+    }
+
+    .ctrl button:disabled {
+      opacity: .3;
+      cursor: not-allowed
+    }
+
+    .ctrl .ic {
+      padding: 10px 14px;
+      border-radius: 50%
+    }
+
+    #bp,
+    #bn {
+      border-radius: 100px
+    }
+
+    .pi {
+      color: #4a3728;
+      font-size: .9rem;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 10px 20px;
+      border-radius: 100px;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-weight: 600;
+      letter-spacing: 1px
+    }
+
+    .pj {
+      display: flex;
+      gap: 5px;
+      align-items: center
+    }
+
+    .pj input {
+      width: 56px;
+      padding: 7px 8px;
+      border: 1px solid rgba(0, 0, 0, .18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .85);
+      color: #203041;
+      font-size: .82rem;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif
+    }
+
+    .pj input::placeholder {
+      color: rgba(0, 0, 0, .35)
+    }
+
+    .pj input:focus {
+      outline: none;
+      border-color: rgba(20, 146, 74, .6)
+    }
+
+    .pj button {
+      padding: 7px 13px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-weight: 700;
+      font-size: .8rem;
+      cursor: pointer
+    }
+
+    @media(max-width:1200px) {
+      :root {
+        --page-height: calc(100vh - 200px)
+      }
+
+      .bc {
+        width: min(calc((100vh - 200px) * 1.34 + 44px), 98vw)
+      }
+
+      .bw {
+        gap: 16px
+      }
+
+      .pc {
+        padding: 40px 42px 40px 48px
+      }
+
+      .rp .pc {
+        padding: 40px 48px 40px 42px
+      }
+
+      .lp .pn {
+        text-align: left;
+        padding-left: 42px
+      }
+
+      .rp .pn {
+        text-align: right;
+        padding-right: 42px
+      }
+    }
+
+    @media(max-width:960px) {
+      :root {
+        --page-height: calc(100vh - 200px)
+      }
+
+      body {
+        padding: 68px 8px 8px
+      }
+
+      .tb {
+        width: min(100%, 98vw);
+        padding: 8px 10px;
+        gap: 6px
+      }
+
+      .tg {
+        gap: 6px
+      }
+
+      .tb button,
+      .home-a,
+      .tb select {
+        font-size: .76rem
+      }
+
+      .ctrl {
+        width: min(98vw, 860px);
+        gap: 8px
+      }
+    }
+
+    @media(max-width:860px) {
+      :root {
+        --page-height: calc(100vh - 180px)
+      }
+
+      body {
+        padding: 60px 6px 8px
+      }
+
+      .hdr {
+        height: 34px
+      }
+
+      .hdr h1 {
+        font-size: .92rem
+      }
+
+      .tb {
+        position: sticky;
+        top: 40px;
+        z-index: 220;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 10px 10px 12px;
+        border-radius: 12px
+      }
+
+      .tg,
+      .home-a {
+        flex: 0 0 auto
+      }
+
+      .bw {
+        flex-direction: column
+      }
+
+      .lp,
+      .rp {
+        width: 100% !important;
+        height: auto;
+        aspect-ratio: var(--page-ratio)
+      }
+
+      .lp {
+        border-bottom: 1px solid rgba(0, 0, 0, .07)
+      }
+
+      .pc,
+      .rp .pc {
+        padding: 28px 20px !important
+      }
+
+      .lp .pn,
+      .rp .pn {
+        padding-left: 20px;
+        padding-right: 20px
+      }
+
+      .np {
+        width: min(360px, 100vw)
+      }
+
+      .ctrl {
+        width: 100%;
+        gap: 8px;
+        padding: 0 4px
+      }
+
+      .pi {
+        width: 100%;
+        text-align: center
+      }
+    }
+
+    @media(max-width:540px) {
+      :root {
+        --page-height: calc(100vh - 160px)
+      }
+
+      body {
+        padding: 54px 4px 8px
+      }
+
+      .tb {
+        top: 38px;
+        width: calc(100vw - 8px);
+        padding: 8px 8px 10px;
+        font-size: .74rem
+      }
+
+      .tb button,
+      .home-a {
+        padding: 5px 10px
+      }
+
+      .tb select {
+        min-width: 88px;
+        padding: 5px 7px
+      }
+
+      .pc,
+      .rp .pc {
+        padding: 20px 16px !important;
+        font-size: calc(var(--fs) - 1px)
+      }
+
+      .pc .img-wrap {
+        max-height: 220px
+      }
+
+      .ctrl {
+        margin-top: 18px;
+        gap: 6px
+      }
+
+      .ctrl button {
+        padding: 7px 10px;
+        font-size: .76rem
+      }
+
+      .ctrl .ic {
+        padding: 7px 10px
+      }
+
+      .pj {
+        width: 100%;
+        justify-content: center
+      }
+
+      .pj input {
+        width: 68px
+      }
+
+      .np {
+        width: 100vw
+      }
+    }
+
+    @media(max-width:600px) {
+      .srch-wrap {
+        width: calc(100vw - 20px);
+        min-width: 0;
+        padding: 8px;
+        top: 85px
+      }
+
+      .srch-inner {
+        gap: 6px
+      }
+
+      .srch-inp {
+        padding: 6px 10px;
+        font-size: .82rem
+      }
+
+      .srch-info {
+        font-size: .7rem;
+        min-width: 50px;
+        padding: 3px 6px
+      }
+
+      .srch-btn,
+      .srch-close {
+        width: 30px;
+        height: 30px;
+        font-size: .8rem
+      }
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .srch-wrap {
+      position: fixed;
+      top: 45px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-150%);
+      z-index: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 0 0 16px 16px;
+      transition: all .3s cubic-bezier(.34, 1.56, .64, 1);
+      backdrop-filter: blur(15px);
+      width: fit-content;
+      min-width: 450px;
+      height: 40px;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden
+    }
+
+    .srch-wrap.open {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible
+    }
+
+    .srch-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%
+    }
+
+    .srch-inp {
+      flex: 1;
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .85rem;
+      outline: none;
+      transition: all .2s;
+      background: rgba(255, 255, 255, 0.95);
+      color: #1f2a38;
+      height: 30px
+    }
+
+    .srch-inp:focus {
+      border-color: var(--accent);
+      background: #fff
+    }
+
+    .srch-inp::placeholder {
+      color: #ccc
+    }
+
+    .srch-info {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .7rem;
+      color: var(--accent2);
+      white-space: nowrap;
+      min-width: 60px;
+      text-align: center;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px
+    }
+
+    .srch-btn {
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      font-size: .8rem;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .srch-btn:hover {
+      background: var(--accent2);
+      transform: scale(1.05)
+    }
+
+    .srch-btn:disabled {
+      opacity: .3;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .srch-close {
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #f0f0f0;
+      color: #666;
+      font-size: .85rem;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .srch-close:hover {
+      background: #e5e5e5;
+      color: #333
+    }
+
+    mark.srch {
+      background: linear-gradient(120deg, #ffd700, #ffec6e);
+      border-radius: 2px;
+      padding: 0 1px;
+      outline: 2px solid transparent;
+      transition: outline .15s;
+      display: inline
+    }
+
+    mark.srch.current {
+      outline: 2px solid #e67e00;
+      background: linear-gradient(120deg, #ff8c00, #ffd040);
+      display: inline
+    }
+
+    /* ===== COLOR PICKER ===== */
+    .cp-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .cp-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, .85);
+      box-shadow: 0 0 0 1.5px rgba(0, 0, 0, .18), 0 2px 6px rgba(0, 0, 0, .18);
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s;
+      flex-shrink: 0;
+      background: #cdcdcd;
+      position: relative
+    }
+
+    .cp-swatch:hover {
+      transform: scale(1.13);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, .25), 0 4px 12px rgba(0, 0, 0, .22)
+    }
+
+    .cp-swatch:active {
+      transform: scale(.97)
+    }
+
+    .cp-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .22), 0 2px 8px rgba(0, 0, 0, .10);
+      z-index: 999;
+      display: none;
+      min-width: 196px;
+      border: 1px solid rgba(0, 0, 0, .07);
+      animation: cpFadeIn .17s ease
+    }
+
+    .cp-panel.open {
+      display: block
+    }
+
+    @keyframes cpFadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+      }
+    }
+
+    .cp-panel-title {
+      font-size: .68rem;
+      font-weight: 700;
+      color: #aaa;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center
+    }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin-bottom: 8px
+    }
+
+    .cp-color {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform .15s, border-color .15s, box-shadow .15s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+      position: relative
+    }
+
+    .cp-color:hover {
+      transform: scale(1.18);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .22)
+    }
+
+    .cp-color.active {
+      border-color: #16a34a;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #16a34a
+    }
+
+    .cp-sep {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 8px 0
+    }
+
+    .cp-custom-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 4px
+    }
+
+    .cp-custom-label {
+      font-size: .7rem;
+      color: #888;
+      font-family: 'Open Sans', sans-serif;
+      white-space: nowrap
+    }
+
+    .cp-custom-inp {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      overflow: hidden
+    }
+
+    .cp-custom-inp::-webkit-color-swatch-wrapper {
+      padding: 0
+    }
+
+    .cp-custom-inp::-webkit-color-swatch {
+      border: none;
+      border-radius: 6px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hdr">
+    <h1>Việt Nam – 9 Bản Hùng Văn</h1>
+  </div>
+  <div class="tb">
+    <div class="tg">
+      <span class="tl">Cỡ chữ:</span>
+      <button onclick="chFS(-1)"><i class="fas fa-minus"></i></button>
+      <span id="fsz">16px</span>
+      <button onclick="chFS(1)"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="tg">
+      <span class="tl">Font:</span>
+      <select id="fsel" onchange="chFont(this.value)">
+        <option value="'Crimson Text',Georgia,serif">Crimson</option>
+        <option value="Georgia,serif">Georgia</option>
+        <option value="'Times New Roman',serif">Times NR</option>
+        <option value="Arial,sans-serif">Arial</option>
+      </select>
+    </div>
+    <div class="tg">
+      <span class="tl">Nền:</span>
+      <div class="cp-wrap" id="cpWrap">
+        <div class="cp-swatch" id="cpSwatch" title="Đổi màu nền" onclick="toggleCP(event)"></div>
+        <div class="cp-panel" id="cpPanel">
+          <div class="cp-panel-title">Chọn màu nền</div>
+          <div class="cp-grid" id="cpGrid"></div>
+          <hr class="cp-sep">
+          <div class="cp-custom-row">
+            <span class="cp-custom-label">Tùy chỉnh:</span>
+            <input type="color" class="cp-custom-inp" id="cpCustom" title="Chọn màu tùy ý">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tg">
+      <button id="hlb" onclick="togHL()"><i class="fas fa-highlighter"></i> Đánh dấu</button>
+      <button onclick="clearHL()" title="Xóa đánh dấu"><i class="fas fa-eraser"></i></button>
+    </div>
+    <div class="tg">
+      <button onclick="togNotes()"><i class="fas fa-history"></i> Lịch sử</button>
+    </div>
+    <div class="tg">
+      <button onclick="togSearch()" id="srchBtn" title="Tìm kiếm"><i class="fas fa-search"></i> Tìm</button>
+    </div>
+    <div class="tg">
+      <button onclick="togFS()" id="fsb"><i class="fas fa-expand"></i></button>
+    </div>
+    <a href="index.html" class="home-a" title="Trang chủ"><i class="fas fa-home"></i></a>
+  </div>
+  <!-- SEARCH BAR -->
+  <div class="srch-wrap" id="srchWrap">
+    <div class="srch-inner">
+      <input class="srch-inp" id="srchInp" type="search" placeholder="Nhập từ cần tìm..." autocomplete="off"
+        oninput="onSrchInput()" onkeydown="onSrchKey(event)" />
+      <span class="srch-info" id="srchInfo"></span>
+      <button class="srch-btn" id="srchPrev" onclick="srchNav(-1)" title="Kết quả trước" disabled><i
+          class="fas fa-chevron-up"></i></button>
+      <button class="srch-btn" id="srchNext" onclick="srchNav(1)" title="Kết quả tiếp" disabled><i
+          class="fas fa-chevron-down"></i></button>
+      <button class="srch-close" onclick="closeSearch()" title="Đóng"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  <div class="np" id="np">
+    <div class="np-hdr">
+      <h3><i class="fas fa-history"></i> Lịch sử & Ghi chú</h3>
+      <button onclick="togNotes()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="np-inp">
+      <input type="text" id="nt-title" placeholder="Tiêu đề (không bắt buộc)..."
+        style="width:100%;margin-bottom:8px;padding:8px;border:1.5px solid #ddd;border-radius:8px;font-size:0.85rem;font-weight:600;outline:none;" />
+      <textarea id="nti" placeholder="Nhập ghi chú..."></textarea>
+      <div style="display:flex;gap:8px;">
+        <button id="nab" class="np-add" onclick="addNote()" style="flex:1;"><i class="fas fa-plus"></i> Thêm</button>
+        <button id="ncb" class="np-add" onclick="cancelEdit()" style="flex:0 0 auto;background:#999;display:none;"
+          title="Hủy sửa"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="np-list" id="nl">
+      <p class="nn">Chưa có ghi chú nào.</p>
+    </div>
+  </div>
+  <div class="bc">
+    <div class="bw" id="bw">
+      <div class="lp" id="lp">
+        <div class="pc" id="cl"></div>
+        <div class="pn" id="nl2"></div>
+      </div>
+      <div class="rp" id="rp">
+        <div class="pc" id="cr"></div>
+        <div class="pn" id="nr"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ctrl">
+    <button class="ic" id="b1" onclick="goFirst()" title="Đầu"><i class="fas fa-angle-double-left"></i></button>
+    <button id="bp" onclick="prev()"><i class="fas fa-chevron-left"></i> Trước</button>
+    <span class="pi">Trang <span id="cp">—</span> / <span id="tp">—</span></span>
+    <button id="bn" onclick="next()">Tiếp <i class="fas fa-chevron-right"></i></button>
+    <button class="ic" id="bl" onclick="goLast()" title="Cuối"><i class="fas fa-angle-double-right"></i></button>
+    <div class="pj">
+      <input type="number" id="ji" min="1" placeholder="#" onkeydown="if(event.key==='Enter')jump()" />
+      <button onclick="jump()">Đi</button>
+    </div>
+  </div>
+  <script id="bookConfig" type="application/json">
+{
+  "defaultFile": "VIET_NAM_9_ban_hung_van.json"
+}
+</script>
+  <script>
+    let pages = [], spread = 0, total = 0, fs = 16;
+    let spreadStarts = [];
+    let data = { source_file: '', pages: [] };
+    const SK = 'fb:';
+    initReader();
+    async function initReader() {
+      try {
+        data = await loadBookData();
+        pages = data.pages || [];
+        total = pages.length;
+        calculateSpreads();
+        document.getElementById('tp').textContent = total;
+        restoreSettings();
+        restoreNotes();
+        bindKeys();
+        if (!total) {
+          showLoadError('Không có dữ liệu trang trong file JSON.');
+          return;
+        }
+        render(0);
+      } catch (err) {
+        showLoadError(err && err.message ? err.message : 'Không thể tải dữ liệu sách.');
+      }
+    }
+    async function loadBookData() {
+      const configRaw = document.getElementById('bookConfig')?.textContent || '{}';
+      let config = {};
+      try { config = JSON.parse(configRaw); } catch (_) { config = {}; }
+      const qs = new URLSearchParams(window.location.search);
+      const jsonFile = (qs.get('file') || config.defaultFile || '').trim();
+      if (!jsonFile) throw new Error('Chưa cấu hình file JSON.');
+
+      // Thử fetch (khi chạy qua HTTP server)
+      try {
+        const response = await fetch(jsonFile, { cache: 'no-store' });
+        if (response.ok) {
+          const book = await response.json();
+          if (book && Array.isArray(book.pages)) return book;
+        }
+      } catch (_) { }
+
+      // Fallback: load script .js (khi mở file:// trực tiếp)
+      window.__BOOK_DATA__ = null;
+      const jsFile = jsonFile.replace(/\.json$/i, '.js');
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = jsFile;
+        s.onload = resolve;
+        s.onerror = () => reject(new Error('Không tải được file dữ liệu: ' + jsFile));
+        document.head.appendChild(s);
+      });
+      const book = window.__BOOK_DATA__;
+      if (!book || !Array.isArray(book.pages)) throw new Error('Dữ liệu sách không đúng định dạng.');
+      return book;
+    }
+    function showLoadError(msg) {
+      const fullMsg = `${msg} Vui lòng chạy bằng HTTP server và kiểm tra tên file JSON.`;
+      document.getElementById('cl').innerHTML = `<p class="ni2">${escH(fullMsg)}</p>`;
+      document.getElementById('cr').innerHTML = '';
+      document.getElementById('nl2').textContent = '';
+      document.getElementById('nr').textContent = '';
+      document.getElementById('cp').textContent = '0';
+      document.getElementById('tp').textContent = '0';
+      ['b1', 'bp', 'bn', 'bl'].forEach(id => { document.getElementById(id).disabled = true; });
+    }
+    function render(s) {
+      spread = Math.max(0, Math.min(s, total - 1));
+      // Ensure we always land on a valid spread start
+      const validS = spreadStarts.includes(spread) ? spread : (spreadStarts.filter(x => x <= spread).pop() || 0);
+      spread = validS;
+
+      const leftPage = pages[spread] || null;
+      const rightPage = pages[spread + 1] || null;
+      const bw = document.getElementById('bw');
+
+      const isSinglePage = isSingle(spread);
+      const isRightSingle = rightPage && isSingle(spread + 1);
+      const single = isSinglePage || !rightPage || isRightSingle;
+
+      bw.classList.toggle('single', single);
+      bw.classList.toggle('cover-single', isSinglePage);
+      if (single) {
+        renderPage('cl', 'nl2', null, -1);
+        renderPage('cr', 'nr', leftPage, spread);
+      } else {
+        renderPage('cl', 'nl2', leftPage, spread);
+        renderPage('cr', 'nr', rightPage, spread + 1);
+      }
+
+      let pageText = '';
+      if (single) {
+        pageText = (leftPage && leftPage.page > 0) ? leftPage.page : (spread + 1);
+      } else {
+        const lpNum = (leftPage && leftPage.page > 0) ? leftPage.page : (spread + 1);
+        const rpNum = (rightPage && rightPage.page > 0) ? rightPage.page : (spread + 2);
+        pageText = `${lpNum}–${rpNum}`;
+      }
+      document.getElementById('cp').textContent = pageText;
+      updBtns();
+    }
+    function renderPage(contentId, numberId, pageData, pageIdx) {
+      const contentEl = document.getElementById(contentId);
+      const numberEl = document.getElementById(numberId);
+      contentEl.className = 'pc';
+      contentEl.innerHTML = '';
+      contentEl.onmouseup = null;
+      contentEl.dataset.pageIdx = (pageIdx !== undefined) ? String(pageIdx) : '-1';
+      numberEl.textContent = '';
+      if (!pageData) return;
+      if (isCov(pageData) || isBack(pageData)) {
+        contentEl.classList.add('cov');
+        contentEl.innerHTML = pageHtml(pageData);
+        return;
+      }
+      if (isInnerTitle(pageData)) {
+        contentEl.classList.add('inner-title');
+        contentEl.innerHTML = pageHtml(pageData);
+        if (pageData.page > 0) numberEl.textContent = pageData.page;
+        return;
+      }
+      if (isInfo(pageData)) {
+        contentEl.classList.add('info-pg');
+        contentEl.innerHTML = '<div class="corner-tl"></div><div class="corner-tr"></div>' + pageHtml(pageData);
+        if (pageData.page > 0) numberEl.textContent = pageData.page;
+        return;
+      }
+      const rawContent = pageData.content || '';
+      if (rawContent.includes('MỤC LỤC')) contentEl.classList.add('toc-pg');
+      const _inlineFns = extractInlineFns(rawContent);
+      contentEl.innerHTML = pageHtml(pageData, _inlineFns) + footnotesHtml(pageData, _inlineFns);
+      if (pageData.page > 0) numberEl.textContent = pageData.page;
+      contentEl.onmouseup = onHL;
+      if (pageIdx >= 0) restoreHL(pageIdx, contentEl);
+    }
+    function pageHtml(pageData) {
+      if (!pageData) return '';
+      if (isCov(pageData) || isBack(pageData)) {
+        const img = resolveAssetPath(pageData.page_image || (pageData.image && pageData.image[0]), pageData);
+        if (img) {
+          return `<img src="${escH(img)}" alt="Bìa sách" loading="eager"/>`;
+        }
+        return `<div class="cov-ph"><div class="ico">📖</div><p>${isBack(pageData) ? 'Hết sách' : 'Bìa sách'}</p></div>`;
+      }
+      if (isInnerTitle(pageData)) {
+        const img = resolveAssetPath(pageData.page_image, pageData);
+        const imgTag = img ? `<img src="${escH(img)}" alt="Việt Nam – 9 Bản Hùng Văn" loading="eager"/>` : '';
+        return `<div class="it-author">Hà Duy Biển</div><div class="it-img">${imgTag}</div><div class="it-pub">Nhà xuất bản Khoa học – Công nghệ – Truyền thông</div>`;
+      }
+      if (isInfo(pageData)) {
+        const content = (pageData.content || '').replace('[INFO_PAGE]', '').trim();
+        return `<div class="info-pg-content">${textHtml(content)}</div>`;
+      }
+      const rawContent = pageData.content || '';
+      if (rawContent.includes('MỤC LỤC')) return tocHtml(rawContent);
+      // strip inline footnote definition lines so they don't render as body text
+      const inlineFns = arguments[1] || extractInlineFns(rawContent);
+      const content = rawContent.split('\n').filter(line => {
+        const m = line.trim().match(/^\[\^([\dIVXivx]+)\]\s+/);
+        return !m;
+      }).join('\n');
+      return textHtml(content);
+    }
+    function tocHtml(content) {
+      const lines = content.split('\n').map(line => line.trim()).filter(Boolean);
+      let html = '';
+      for (let line of lines) {
+        // Strip [CENTER] prefix and ** bold markers for TOC rendering
+        if (line.startsWith('[CENTER]')) line = line.slice(8).trim();
+        line = line.replace(/\*\*([^*]+)\*\*/g, '$1');
+        if (/^MỤC LỤC$/i.test(line)) {
+          html += '<span class="toc-h">MỤC LỤC</span>';
+          continue;
+        }
+        const tabIndex = line.indexOf('\t');
+        if (tabIndex > -1) {
+          const text = escH(line.slice(0, tabIndex).trim());
+          const pageStr = line.slice(tabIndex + 1).trim();
+          const pageVal = parseInt(pageStr);
+          const cls = /^chương/i.test(text) ? 'ch-row' : /^\d+\.\d+/.test(text) ? 'l2' : '';
+          const onclick = !isNaN(pageVal) ? `onclick="jump(${pageVal})"` : '';
+          html += `<div class="ti ${cls}" ${onclick}><span>${text}</span><span class="td"></span><span class="tp">${pageStr}</span></div>`;
+        } else {
+          html += `<div class="ti">${escH(line)}</div>`;
+        }
+      }
+      return `<div class="toc-pg">${html}</div>`;
+    }
+    function textHtml(content) {
+      const lines = content.split('\n');
+      let html = '';
+      for (const raw of lines) {
+        let line = raw.trim();
+        if (!line) continue;
+        // Check for [POEM] / [CENTER] prefix
+        let isCenter = false, isPoem = false, isRight = false;
+        if (line.startsWith('[POEM]')) { isPoem = true; line = line.slice(6).trim(); }
+        if (line.startsWith('[CENTER]')) { isCenter = true; line = line.slice(8).trim(); }
+        if (line.startsWith('[RIGHT]')) { isRight = true; line = line.slice(7).trim(); }
+        if (line === '[HR]') {
+          html += `<div class="info-line"></div>`;
+          continue;
+        }
+        if (line.includes('Email:') && (line.includes('Điện thoại:') || line.includes('Địa chỉ:'))) {
+          const parts = line.split('Email:');
+          const left = renderInlineText(parts[0].trim());
+          const right = renderInlineText('Email: ' + parts[1].trim());
+          html += `<div style="display:flex; justify-content: space-between; gap: 20px; text-align: left;"><p style="text-indent:0;">${left}</p><p style="text-indent:0;">${right}</p></div>`;
+          continue;
+        }
+        const imageMatch = line.match(/^\[\[IMAGE:(.+?)\]\]$/);
+        if (imageMatch) {
+          const src = escH(resolveAssetPath(imageMatch[1].trim()));
+          html += `<div class="img-wrap ni2"><img src="${src}" alt="Ảnh minh họa" loading="lazy"/></div>`;
+          continue;
+        }
+        const imagePortraitMatch = line.match(/^\[\[IMAGE-P:(.+?)\]\]$/);
+        if (imagePortraitMatch) {
+          const src = escH(resolveAssetPath(imagePortraitMatch[1].trim()));
+          html += `<div class="img-wrap img-portrait ni2"><img src="${src}" alt="Ảnh minh họa" loading="lazy"/></div>`;
+          continue;
+        }
+        const captionMatch = line.match(/^\[\[CAPTION:(.+?)\]\]$/);
+        if (captionMatch) {
+          html += `<p class="img-caption">${escH(captionMatch[1])}</p>`;
+          continue;
+        }
+        const videoMatch = line.match(/^\[\[VIDEO:(.+?)\]\]$/);
+        if (videoMatch) {
+          const src = escH(resolveAssetPath(videoMatch[1].trim()));
+          html += `<div class="vid-wrap ni2"><video controls preload="metadata"><source src="${src}" type="video/mp4"></video></div>`;
+          continue;
+        }
+        const audioMatch = line.match(/^\[\[AUDIO:(.+?)\]\]$/);
+        if (audioMatch) {
+          const src = escH(resolveAssetPath(audioMatch[1].trim()));
+          html += `<div class="aud-wrap ni2"><audio controls preload="metadata"><source src="${src}" type="audio/mpeg"></audio></div>`;
+          continue;
+        }
+        // Detect Chinese/CJK characters — only treat as a Chinese paragraph if
+        // the majority of characters are CJK (pure Chinese block, not inline snippets)
+        const cjkCount = (line.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+        const latinCount = (line.match(/[a-zA-Z\u00C0-\u024F]/g) || []).length;
+        const hasCJK = cjkCount > 0;
+        const isPureCJK = cjkCount > 0 && cjkCount > latinCount;
+        const isHeader = isChHd(line);
+        const inlineHtml = renderInlineText(line, isHeader);
+        if (isPoem) {
+          html += `<p class="poem">${inlineHtml}</p>`;
+          continue;
+        }
+        if (isCenter) {
+          if (isHeader) {
+            html += `<span class="ch">${inlineHtml}</span>`;
+          } else if (isPureCJK) {
+            html += `<p class="han center-p">${inlineHtml}</p>`;
+          } else {
+            html += `<p class="center-p ni2">${inlineHtml}</p>`;
+          }
+          continue;
+        }
+        if (isRight) {
+          html += `<p style="text-align: right; text-indent: 0;">${inlineHtml}</p>`;
+          continue;
+        }
+        if (isHeader) { html += `<span class="ch">${inlineHtml}</span>`; continue; }
+        if (/^\d+(\.\d+)*\.?\s+\S/.test(line) && line.length < 100) { html += `<p class="sh ni2">${inlineHtml}</p>`; continue; }
+        if (/^[-–—]/.test(line)) { html += `<p class="dial ni2">${inlineHtml}</p>`; continue; }
+        if (isPureCJK) { html += `<p class="han">${inlineHtml}</p>`; continue; }
+        html += `<p>${inlineHtml}</p>`;
+      }
+      return html;
+    }
+
+    function renderInlineText(text, isHeader = false) {
+      let s = escH(text);
+      if (!isHeader) {
+        const titles = [
+          'Lời tựa',
+          'Nam quốc sơn hà',
+          'Phạt Tống lộ bố văn',
+          'Dụ chư tỳ tướng hịch văn',
+          'Bình Ngô đại cáo',
+          'Thư chiêu dụ các tướng sĩ Mạc',
+          'Xuất sư hịch',
+          'Tế Cần Giuộc sĩ dân trận vong văn',
+          'Tuyên ngôn Độc lập',
+          'Lời kêu gọi toàn quốc kháng chiến'
+        ];
+        titles.forEach(t => {
+          const escapedT = escH(t);
+          const regex = new RegExp(`(${escapedT})`, 'gi');
+          s = s.replace(regex, '<em>$1</em>');
+        });
+      }
+      // Footnote refs
+      s = s.replace(/\[\^([IVXivx\d]+)\]/g, '<sup class="fn-ref">($1)</sup>');
+      // Bold markers **...**
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      // Wrap inline CJK sequences with han-inline so they render with Chinese font
+      s = s.replace(/([\u4e00-\u9fff\u3400-\u4dbf][\u4e00-\u9fff\u3400-\u4dbf\s\u3001-\u303f\uff00-\uffef]*)/g,
+        '<span class="han-inline">$1</span>');
+      return s;
+    }
+
+    function resolveAssetPath(src, pageData) {
+      const raw = String(src || '').trim();
+      const selected = pickCoverFallback(raw, pageData) || raw;
+      if (!selected) return '';
+      return selected
+        .split('/')
+        .map(part => encodeURIComponent(part))
+        .join('/')
+        .replace(/%3A/gi, ':');
+    }
+
+    function pickCoverFallback(src, pageData) {
+      if (!pageData || (!isCov(pageData) && !isBack(pageData))) return '';
+      const normalized = String(src || '').trim().toLowerCase();
+      if (!normalized || normalized === 'img/front.png' || normalized === 'img/back.png') {
+        return 'bìa sách.png';
+      }
+      return '';
+    }
+
+    function extractInlineFns(content) {
+      const result = [];
+      for (const line of content.split('\n')) {
+        const m = line.trim().match(/^\[\^([\dIVXivx]+)\]\s+(.*)/);
+        if (m) result.push({ id: m[1], text: m[2] });
+      }
+      return result;
+    }
+    function footnotesHtml(pageData, extraFns) {
+      const arrFns = Array.isArray(pageData?.footnotes) ? pageData.footnotes : [];
+      const extra = Array.isArray(extraFns) ? extraFns : [];
+      // merge, deduplicate by id, sort numerically
+      const seen = new Set();
+      const footnotes = [...extra, ...arrFns].filter(n => {
+        const key = String(n.id ?? '');
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      }).sort((a, b) => {
+        const na = parseInt(a.id) || 0, nb = parseInt(b.id) || 0;
+        return na - nb;
+      });
+      if (!footnotes.length) return '';
+      const items = footnotes.map(note => {
+        const id = escH(note.id ?? '');
+        const paras = String(note.text ?? '').split('\n').filter(l => l.trim());
+        const firstLine = renderInlineText(paras[0] || '');
+        const restLines = paras.slice(1).map(l => `<p class="fn-cont">${renderInlineText(l)}</p>`).join('');
+        return `<div class="fn-item"><sup class="fn-num">(${id})</sup><span class="fn-text">${firstLine}${restLines}</span></div>`;
+      }).join('');
+      return `<div class="fn-block">${items}</div>`;
+    }
+    function isChHd(line) {
+      const raw = line.replace(/\*\*|\*/g, '').trim();
+      if (raw.length < 4) return false;
+      const mainTitles = [
+        'LỜI TỰA', 'NAM QUỐC SƠN HÀ', 'PHẠT TỐNG LỘ BỐ VĂN', 'DỤ CHƯ TỲ TƯỚNG HỊCH VĂN',
+        'BÌNH NGÔ ĐẠI CÁO', 'THƯ CHIÊU DỤ CÁC TƯỚNG SĨ MẠC', 'XUẤT SƯ HỊCH',
+        'TẾ CẦN GIUỘC SĨ DÂN TRẬN VONG VĂN', 'TUYÊN NGÔN ĐỘC LẬP',
+        'LỜI KÊU GỌI TOÀN QUỐC KHÁNG CHIẾN'
+      ];
+      if (mainTitles.includes(raw.toUpperCase())) return true;
+      if (/^ISBN/i.test(raw)) return false;
+      if (raw.length < 100 && /^(CHƯƠNG|LỜI NÓI ĐẦU|KẾT LUẬN|TÀI LIỆU|PHẦN|PHỤ LỤC)/i.test(raw)) return true;
+      const normalized = raw.replace(/[àáâãèéêìíòóôõùúăđĩũơưạảấầẩẫậắằẳẵặẹẻẽềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/gi, 'x');
+      return normalized === normalized.toUpperCase() && raw.length >= 5 && /[A-ZÀÁÂÃ]/.test(raw);
+    }
+    function isCov(page) { return page && page.content === 'FRONT_COVER_IMAGE'; }
+    function isBack(page) { return page && page.content === 'BACK_COVER_IMAGE'; }
+    function isInnerTitle(page) { return page && page.content === 'INNER_TITLE_PAGE'; }
+    function isInfo(page) { return page && page.content && page.content.includes('[INFO_PAGE]'); }
+    function escH(text) { return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function isSingle(index) {
+      if (index < 0 || index >= total) return true;
+      const page = pages[index];
+      if (isCov(page) || isBack(page)) return true;
+      return false;
+    }
+    function calculateSpreads() {
+      spreadStarts = [0];
+      let i = 0;
+      while (i < total - 1) {
+        let step = 1;
+        if (!isSingle(i)) {
+          const nxt = pages[i + 1];
+          if (nxt && !isSingle(i + 1)) step = 2;
+        }
+        i += step;
+        spreadStarts.push(i);
+      }
+    }
+    function stepFwd(index) {
+      const currIdx = spreadStarts.indexOf(index);
+      if (currIdx === -1 || currIdx >= spreadStarts.length - 1) return 1;
+      return spreadStarts[currIdx + 1] - index;
+    }
+    function next() {
+      const currIdx = spreadStarts.indexOf(spread);
+      if (currIdx > -1 && currIdx < spreadStarts.length - 1) {
+        render(spreadStarts[currIdx + 1]);
+      }
+    }
+    function prev() {
+      const currIdx = spreadStarts.indexOf(spread);
+      if (currIdx > 0) {
+        render(spreadStarts[currIdx - 1]);
+      }
+    }
+    function goFirst() { render(0); }
+    function goLast() { render(total - 1); }
+    function jump(val) {
+      const input = document.getElementById('ji');
+      const value = parseInt(val || input.value);
+      if (isNaN(value) || value < 1) return;
+      const index = pages.findIndex(page => page.page === value);
+      if (index < 0) return;
+      // Land on the start of the spread containing this page
+      const s = spreadStarts.filter(x => x <= index).pop() || 0;
+      render(s);
+      if (!val) input.value = '';
+    }
+    function updBtns() {
+      const step = stepFwd(spread);
+      document.getElementById('b1').disabled = spread <= 0;
+      document.getElementById('bp').disabled = spread <= 0;
+      document.getElementById('bn').disabled = spread + step >= total;
+      document.getElementById('bl').disabled = spread + step >= total;
+    }
+    function bindKeys() {
+      document.addEventListener('keydown', event => {
+        if (['INPUT', 'TEXTAREA'].includes(event.target.tagName)) return;
+        if (event.key === 'ArrowRight' || event.key === 'PageDown') next();
+        if (event.key === 'ArrowLeft' || event.key === 'PageUp') prev();
+        if (event.key === 'Home') goFirst();
+        if (event.key === 'End') goLast();
+      });
+    }
+    function chFS(delta) {
+      fs = Math.max(12, Math.min(26, fs + delta));
+      document.documentElement.style.setProperty('--fs', fs + 'px');
+      document.getElementById('fsz').textContent = fs + 'px';
+      sv('fs', fs);
+    }
+    function chFont(value) {
+      document.documentElement.style.setProperty('--ff', value);
+      sv('font', value);
+    }
+    function chTheme(theme) {
+      document.body.classList.remove('sepia', 'dark');
+      if (theme) document.body.classList.add(theme);
+      sv('theme', theme);
+    }
+
+    /* ===== COLOR PICKER LOGIC ===== */
+    const CP_COLORS = [
+      { bg1: '#f8f9fa', bg2: '#e9ecef', paper: '#ffffff', text: '#212529', label: 'Trắng sáng' },
+      { bg1: '#e0d8cc', bg2: '#d1c4b2', paper: '#faf8f5', text: '#2c1810', label: 'Cổ điển' },
+      { bg1: '#1a1a1a', bg2: '#0a0a0a', paper: '#242424', text: '#d0d0d0', label: 'Bóng đêm' },
+      { bg1: '#e8f5e9', bg2: '#c8e6c9', paper: '#f1f8f1', text: '#1b4332', label: 'Thiên nhiên' },
+      { bg1: '#e3f2fd', bg2: '#bbdefb', paper: '#f0f7ff', text: '#0d47a1', label: 'Dịu mát' },
+      { bg1: '#f3e5f5', bg2: '#e1bee7', paper: '#f8f0f8', text: '#4a148c', label: 'Trầm ấm' },
+    ];
+    let cpActive = null; // index in CP_COLORS or 'custom'
+    function buildCPGrid() {
+      const grid = document.getElementById('cpGrid');
+      grid.innerHTML = '';
+      CP_COLORS.forEach((c, i) => {
+        const el = document.createElement('div');
+        el.className = 'cp-color';
+        el.style.background = c.bg1;
+        el.title = c.label;
+        el.dataset.idx = i;
+        el.onclick = () => applyBgColor(i);
+        grid.appendChild(el);
+      });
+    }
+    function updateCPSwatch() {
+      const swatch = document.getElementById('cpSwatch');
+      const style = getComputedStyle(document.documentElement);
+      const bg1 = style.getPropertyValue('--bg1').trim();
+      swatch.style.background = bg1 || '#cdcdcd';
+    }
+    function applyBgColor(idx) {
+      const c = CP_COLORS[idx];
+      document.documentElement.style.setProperty('--bg1', c.bg1);
+      document.documentElement.style.setProperty('--bg2', c.bg2);
+      document.documentElement.style.setProperty('--paper', c.paper);
+      document.documentElement.style.setProperty('--text', c.text);
+      document.body.style.background = `linear-gradient(180deg,${c.bg1},${c.bg2})`;
+      cpActive = idx;
+      document.querySelectorAll('.cp-color').forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+      });
+      updateCPSwatch();
+      sv('bgColor', { idx, bg1: c.bg1, bg2: c.bg2, paper: c.paper, text: c.text });
+      // Close panel
+      document.getElementById('cpPanel').classList.remove('open');
+    }
+    function applyCustomColor(hex) {
+      // Generate a slightly darker shade for bg2
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+      const darken = (v, amt = 18) => Math.max(0, v - amt);
+      const bg2 = `rgb(${darken(r)},${darken(g)},${darken(b)})`;
+      // For custom color, use the same as paper but maybe slightly lightened?
+      // Let's just use the same hex for paper for simplicity, or keep it white if it's a light color.
+      // A better way: paper is hex, text is auto-selected based on brightness
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+      const textColor = brightness > 128 ? '#1f2a38' : '#d0d0d0';
+      document.documentElement.style.setProperty('--bg1', hex);
+      document.documentElement.style.setProperty('--bg2', bg2);
+      document.documentElement.style.setProperty('--paper', hex);
+      document.documentElement.style.setProperty('--text', textColor);
+      document.body.style.background = `linear-gradient(180deg,${hex},${bg2})`;
+      cpActive = 'custom';
+      document.querySelectorAll('.cp-color').forEach(el => el.classList.remove('active'));
+      updateCPSwatch();
+      sv('bgColor', { idx: 'custom', bg1: hex, bg2, paper: hex, text: textColor });
+    }
+    function toggleCP(e) {
+      e.stopPropagation();
+      const panel = document.getElementById('cpPanel');
+      panel.classList.toggle('open');
+    }
+    function initCP() {
+      buildCPGrid();
+      // Custom color input
+      document.getElementById('cpCustom').addEventListener('input', function () {
+        applyCustomColor(this.value);
+      });
+      // Close on outside click
+      document.addEventListener('click', e => {
+        const wrap = document.getElementById('cpWrap');
+        if (wrap && !wrap.contains(e.target)) {
+          document.getElementById('cpPanel').classList.remove('open');
+        }
+      });
+      // Restore saved bg color
+      const saved = ld('bgColor', null);
+      if (saved && saved.bg1 && saved.bg2) {
+        document.documentElement.style.setProperty('--bg1', saved.bg1);
+        document.documentElement.style.setProperty('--bg2', saved.bg2);
+        if (saved.paper) document.documentElement.style.setProperty('--paper', saved.paper);
+        if (saved.text) document.documentElement.style.setProperty('--text', saved.text);
+        document.body.style.background = `linear-gradient(180deg,${saved.bg1},${saved.bg2})`;
+        if (typeof saved.idx === 'number') {
+          cpActive = saved.idx;
+          const grid = document.getElementById('cpGrid');
+          if (grid.children[saved.idx]) grid.children[saved.idx].classList.add('active');
+        }
+      }
+      updateCPSwatch();
+    }
+    function togHL() {
+      const on = document.body.classList.toggle('hl');
+      document.getElementById('hlb').classList.toggle('on', on);
+    }
+    function clearHL() {
+      ['cl', 'cr'].forEach(id => {
+        const el = document.getElementById(id);
+        const idx = el ? parseInt(el.dataset.pageIdx || '-1') : -1;
+        if (idx >= 0) localStorage.removeItem(SK + 'hl_' + idx);
+      });
+      document.querySelectorAll('mark.hl').forEach(mark => {
+        const p = mark.parentNode;
+        while (mark.firstChild) p.insertBefore(mark.firstChild, mark);
+        mark.remove();
+        if (p) p.normalize();
+      });
+    }
+    function onHL() {
+      if (!document.body.classList.contains('hl')) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+      const range = sel.getRangeAt(0).cloneRange();
+      sel.removeAllRanges();
+      const ancestor = range.commonAncestorContainer;
+      const root = ancestor.nodeType === 3 ? ancestor.parentNode : ancestor;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const toWrap = [];
+      let node;
+      while ((node = walker.nextNode())) {
+        if (!range.intersectsNode(node)) continue;
+        const s = (node === range.startContainer) ? range.startOffset : 0;
+        const e = (node === range.endContainer) ? range.endOffset : node.textContent.length;
+        if (s < e) toWrap.push({ node, s, e });
+      }
+      toWrap.forEach(({ node, s, e }) => {
+        const text = node.textContent;
+        const mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.textContent = text.slice(s, e);
+        const frag = document.createDocumentFragment();
+        if (s > 0) frag.appendChild(document.createTextNode(text.slice(0, s)));
+        frag.appendChild(mark);
+        if (e < text.length) frag.appendChild(document.createTextNode(text.slice(e)));
+        node.parentNode.replaceChild(frag, node);
+      });
+
+      // Auto-save to unified history
+      const combinedText = toWrap.map(tw => tw.node.textContent.slice(tw.s, tw.e)).join(' ').trim();
+      if (combinedText) {
+        const notes = ldN();
+        const snippet = combinedText.length > 200 ? combinedText.slice(0, 197) + '...' : combinedText;
+        notes.unshift({
+          type: 'bookmark',
+          text: `[Đánh dấu]: "${snippet}"`,
+          time: new Date().toLocaleString('vi-VN'),
+          spread
+        });
+        svN(notes);
+        rnl(notes);
+        document.getElementById('np').classList.add('open');
+      }
+
+      // Save highlights for this page
+      const ancestor2 = range.commonAncestorContainer;
+      const root2 = ancestor2.nodeType === 3 ? ancestor2.parentNode : ancestor2;
+      const pcEl = (root2 && root2.closest) ? root2.closest('.pc') : null;
+      if (pcEl) {
+        const pageIdx = parseInt(pcEl.dataset.pageIdx || '-1');
+        if (pageIdx >= 0) saveHL(pageIdx, pcEl);
+      }
+    }
+    function saveHL(pageIdx, contentEl) {
+      const ranges = [];
+      const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT, null);
+      let total = 0, node;
+      while ((node = walker.nextNode())) {
+        const len = node.textContent.length;
+        let p = node.parentNode, inMark = false;
+        while (p && p !== contentEl) {
+          if (p.nodeName === 'MARK' && p.classList.contains('hl')) { inMark = true; break; }
+          p = p.parentNode;
+        }
+        if (inMark) ranges.push({ start: total, end: total + len });
+        total += len;
+      }
+      const key = SK + 'hl_' + pageIdx;
+      if (ranges.length) localStorage.setItem(key, JSON.stringify(ranges));
+      else localStorage.removeItem(key);
+    }
+    function restoreHL(pageIdx, contentEl) {
+      let ranges;
+      try { ranges = JSON.parse(localStorage.getItem(SK + 'hl_' + pageIdx) || '[]'); } catch { ranges = []; }
+      if (!ranges.length) return;
+      ranges.forEach(({ start, end }) => {
+        const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT, null);
+        const toWrap = []; let total = 0, node;
+        while ((node = walker.nextNode())) {
+          const len = node.textContent.length;
+          const ns = total, ne = total + len;
+          if (ne > start && ns < end) {
+            toWrap.push({ node, s: Math.max(start - ns, 0), e: Math.min(end - ns, len) });
+          }
+          total += len;
+        }
+        toWrap.forEach(({ node, s, e }) => {
+          const text = node.textContent;
+          const mark = document.createElement('mark');
+          mark.className = 'hl';
+          mark.textContent = text.slice(s, e);
+          const frag = document.createDocumentFragment();
+          if (s > 0) frag.appendChild(document.createTextNode(text.slice(0, s)));
+          frag.appendChild(mark);
+          if (e < text.length) frag.appendChild(document.createTextNode(text.slice(e)));
+          node.parentNode.replaceChild(frag, node);
+        });
+      });
+    }
+    function togFS() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        document.getElementById('fsb').innerHTML = '<i class="fas fa-compress"></i>';
+      } else {
+        document.exitFullscreen();
+        document.getElementById('fsb').innerHTML = '<i class="fas fa-expand"></i>';
+      }
+    }
+    function togNotes() { document.getElementById('np').classList.toggle('open'); }
+    let editIdx = -1;
+    function addNote() {
+      const text = document.getElementById('nti').value.trim();
+      const title = document.getElementById('nt-title').value.trim();
+      if (!text && !title) return;
+      const notes = ldN();
+      if (editIdx >= 0 && editIdx < notes.length) {
+        notes[editIdx].text = text;
+        notes[editIdx].title = title;
+        notes[editIdx].time = new Date().toLocaleString('vi-VN') + ' (đã sửa)';
+        editIdx = -1;
+      } else {
+        const isBM = text.startsWith('[Đánh dấu]:');
+        notes.unshift({
+          type: isBM ? 'bookmark' : 'note',
+          title,
+          text,
+          time: new Date().toLocaleString('vi-VN'),
+          spread
+        });
+      }
+      svN(notes);
+      document.getElementById('nti').value = '';
+      document.getElementById('nt-title').value = '';
+      document.getElementById('nab').innerHTML = '<i class="fas fa-plus"></i> Thêm';
+      document.getElementById('ncb').style.display = 'none';
+      rnl(notes);
+    }
+    function editNote(idx, e) {
+      // Only ignore if clicking the trash button, but allow the 'Đặt tên' button and card body
+      if (e && e.target.closest('button.nd') && !e.target.closest('button.nd-name')) return;
+      editIdx = idx;
+      const notes = ldN();
+      const nti = document.getElementById('nti');
+      const ntt = document.getElementById('nt-title');
+      nti.value = notes[idx].text || '';
+      ntt.value = notes[idx].title || '';
+      document.getElementById('nab').innerHTML = '<i class="fas fa-save"></i> Lưu';
+      document.getElementById('ncb').style.display = 'block';
+      ntt.focus();
+      rnl(notes); // refresh to show active state
+    }
+    function cancelEdit() {
+      editIdx = -1;
+      document.getElementById('nti').value = '';
+      document.getElementById('nt-title').value = '';
+      document.getElementById('nab').innerHTML = '<i class="fas fa-plus"></i> Thêm';
+      document.getElementById('ncb').style.display = 'none';
+      rnl(ldN());
+    }
+    function delNote(index) {
+      const notes = ldN();
+      notes.splice(index, 1);
+      if (editIdx === index) cancelEdit();
+      else if (editIdx > index) editIdx--;
+      svN(notes);
+      rnl(notes);
+    }
+    function rnl(notes) {
+      const el = document.getElementById('nl');
+      if (!notes.length) {
+        el.innerHTML = '<p class="nn">Chưa có ghi chú nào.</p>';
+        return;
+      }
+      el.innerHTML = notes.map((note, index) => {
+        const isBM = note.type === 'bookmark';
+        const hasPg = note.spread !== undefined && note.spread >= 0;
+        const pgBtn = hasPg ? `<span class="np-pg"><i class="fas fa-book-open"></i> Trang ${note.spread + 1}</span>` : '';
+        const icon = isBM ? '<i class="fas fa-highlighter ni-icon"></i>' : '<i class="fas fa-sticky-note ni-icon"></i>';
+        let cls = isBM ? 'ni is-bookmark' : 'ni';
+        if (editIdx === index) cls += ' editing';
+
+        return `
+      <div class="${cls}" onclick="goNoteSpread(${note.spread})">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          ${icon}
+          <div style="display:flex;gap:5px;">
+            <button class="nd" onclick="event.stopPropagation();editNote(${index}, event)" title="Sửa ghi chú"><i class="fas fa-edit"></i></button>
+            <button class="nd" onclick="event.stopPropagation();delNote(${index})" title="Xóa"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+        ${note.title ? `<div style="font-weight:700;font-size:0.9rem;color:var(--accent2);margin-bottom:4px;">${escH(note.title)}</div>` : ''}
+        <div style="font-weight:500;">${escH(note.text)}</div>
+        <div class="nt">${note.time}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+          ${pgBtn}
+          ${isBM && !note.title ? `<button class="nd-name" onclick="event.stopPropagation();editNote(${index}, event)"><i class="fas fa-tag"></i> Đặt tên</button>` : ''}
+        </div>
+      </div>`;
+      }).join('');
+    }
+    function ldN() { try { return JSON.parse(localStorage.getItem(SK + 'n') || '[]'); } catch { return []; } }
+    function svN(notes) { localStorage.setItem(SK + 'n', JSON.stringify(notes)); }
+    function goNoteSpread(s) {
+      render(s);
+      document.getElementById('np').classList.remove('open');
+    }
+    function restoreNotes() { rnl(ldN()); }
+    function sv(key, value) { localStorage.setItem(SK + key, JSON.stringify(value)); }
+    function ld(key, fallback) {
+      try {
+        const value = localStorage.getItem(SK + key);
+        return value !== null ? JSON.parse(value) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+    function restoreSettings() {
+      fs = ld('fs', 16);
+      document.documentElement.style.setProperty('--fs', fs + 'px');
+      document.getElementById('fsz').textContent = fs + 'px';
+      const font = ld('font', "'Crimson Text',Georgia,serif");
+      document.documentElement.style.setProperty('--ff', font);
+      document.getElementById('fsel').value = font;
+      chTheme(ld('theme', ''));
+      initCP();
+      initSearch();
+    }
+
+    /* ===== TEXT SEARCH ===== */
+    let srchResults = [];  // [{pageIdx, spreadIdx}]
+    let srchCurrent = -1;
+    let srchQuery = '';
+    let srchDebounce = null;
+
+    function initSearch() {
+      // Close search on Escape
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeSearch();
+        if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+          e.preventDefault();
+          togSearch(true);
+        }
+      });
+      // Close search on click outside
+      document.addEventListener('mousedown', e => {
+        const wrap = document.getElementById('srchWrap');
+        const btn = document.getElementById('srchBtn');
+        if (wrap.classList.contains('open')) {
+          if (!wrap.contains(e.target) && !btn.contains(e.target)) {
+            closeSearch();
+          }
+        }
+      });
+    }
+
+    function togSearch(forceOpen) {
+      const wrap = document.getElementById('srchWrap');
+      const isOpen = wrap.classList.contains('open');
+      if (forceOpen || !isOpen) {
+        wrap.classList.add('open');
+        document.getElementById('srchBtn').classList.add('on');
+        setTimeout(() => document.getElementById('srchInp').focus(), 220);
+      } else {
+        closeSearch();
+      }
+    }
+
+    function closeSearch() {
+      document.getElementById('srchWrap').classList.remove('open');
+      document.getElementById('srchBtn').classList.remove('on');
+      clearSrchMarks();
+      srchResults = []; srchCurrent = -1; srchQuery = '';
+      document.getElementById('srchInp').value = '';
+      document.getElementById('srchInfo').textContent = '';
+      document.getElementById('srchPrev').disabled = true;
+      document.getElementById('srchNext').disabled = true;
+    }
+
+    function onSrchInput() {
+      clearTimeout(srchDebounce);
+      srchDebounce = setTimeout(runSearch, 280);
+    }
+
+    function onSrchKey(e) {
+      if (e.key === 'Enter') {
+        e.shiftKey ? srchNav(-1) : srchNav(1);
+      }
+    }
+
+    function runSearch() {
+      const q = document.getElementById('srchInp').value.trim();
+      srchResults = [];
+      srchCurrent = -1;
+      clearSrchMarks();
+      document.getElementById('srchPrev').disabled = true;
+      document.getElementById('srchNext').disabled = true;
+      if (!q || q.length < 1) {
+        document.getElementById('srchInfo').textContent = '';
+        return;
+      }
+      srchQuery = q;
+      // Search through all pages
+      const qLow = q.toLowerCase();
+      for (let i = 0; i < pages.length; i++) {
+        const p = pages[i];
+        if (!p || !p.content || typeof p.content !== 'string') continue;
+        const text = p.content.toLowerCase();
+        if (text.includes(qLow)) {
+          // figure out what spread to jump to
+          let spreadIdx = i;
+          if (i > 0 && !isCov(pages[i]) && !isBack(pages[i]) && !isInnerTitle(pages[i])) {
+            const prev2 = pages[i - 1];
+            if (prev2 && !isCov(prev2) && !isBack(prev2) && !isInnerTitle(prev2)) {
+              // if i is even (right page in a two-page spread starting at i-1)
+              spreadIdx = (i % 2 === 0) ? i - 1 : i;
+            }
+          }
+          srchResults.push({ pageIdx: i, spreadIdx });
+        }
+      }
+      const count = srchResults.length;
+      if (count === 0) {
+        document.getElementById('srchInfo').textContent = 'Không tìm thấy';
+      } else {
+        document.getElementById('srchInfo').textContent = `1 / ${count}`;
+        document.getElementById('srchPrev').disabled = false;
+        document.getElementById('srchNext').disabled = false;
+        srchCurrent = 0;
+        jumpToSrchResult(0);
+      }
+    }
+
+    function srchNav(dir) {
+      if (!srchResults.length) return;
+      srchCurrent = (srchCurrent + dir + srchResults.length) % srchResults.length;
+      document.getElementById('srchInfo').textContent = `${srchCurrent + 1} / ${srchResults.length}`;
+      jumpToSrchResult(srchCurrent);
+    }
+
+    function jumpToSrchResult(idx) {
+      const res = srchResults[idx];
+      if (!res) return;
+      // Navigate to the right spread
+      if (res.spreadIdx !== spread) {
+        render(res.spreadIdx);
+      }
+      // After render, apply highlights
+      setTimeout(() => highlightSrch(srchQuery), 60);
+    }
+
+    function clearSrchMarks() {
+      ['cl', 'cr'].forEach(cid => {
+        const el = document.getElementById(cid);
+        if (!el) return;
+        // Unwrap all <mark class="sh"> keeping their text
+        el.querySelectorAll('mark.srch').forEach(mark => {
+          const parent = mark.parentNode;
+          while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+          mark.remove();
+          if (parent) parent.normalize();
+        });
+      });
+    }
+
+    function highlightSrch(q) {
+      if (!q) return;
+      clearSrchMarks();
+      ['cl', 'cr'].forEach(cid => {
+        const el = document.getElementById(cid);
+        if (!el) return;
+        highlightInNode(el, q);
+      });
+      // Mark the first match as current
+      const allMarks = document.querySelectorAll('mark.srch');
+      allMarks.forEach((m, i) => m.classList.toggle('current', i === 0));
+      if (allMarks[0]) allMarks[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+
+    function highlightInNode(root, q) {
+      if (!q || !root) return;
+      const qLow = q.toLowerCase();
+      // Walk only text nodes — never touch tag attributes or structure
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const textNodes = [];
+      let node;
+      while ((node = walker.nextNode())) textNodes.push(node);
+      for (const tn of textNodes) {
+        const text = tn.textContent;
+        const textLow = text.toLowerCase();
+        let idx = textLow.indexOf(qLow);
+        if (idx === -1) continue;
+        // Split text node and insert <mark> tags for each match
+        const parent = tn.parentNode;
+        if (!parent) continue;
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        while (idx !== -1) {
+          if (idx > last) frag.appendChild(document.createTextNode(text.slice(last, idx)));
+          const mark = document.createElement('mark');
+          mark.className = 'srch';
+          mark.textContent = text.slice(idx, idx + q.length);
+          frag.appendChild(mark);
+          last = idx + q.length;
+          idx = textLow.indexOf(qLow, last);
+        }
+        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        parent.replaceChild(frag, tn);
+      }
+    }
+    document.addEventListener('click', e => {
+      const ref = e.target.closest('.fn-ref');
+      if (ref) {
+        const num = ref.textContent.replace(/[()\[\]]/g, '').trim();
+        const pc = ref.closest('.pc');
+        if (!pc) return;
+        const items = pc.querySelectorAll('.fn-item');
+        items.forEach(it => {
+          const itNumEl = it.querySelector('.fn-num');
+          if (!itNumEl) return;
+          const itNum = itNumEl.textContent.replace(/[()\[\]]/g, '').trim();
+          if (itNum === num) {
+            it.classList.remove('fn-highlight');
+            void it.offsetWidth; // trigger reflow
+            it.classList.add('fn-highlight');
+            it.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => it.classList.remove('fn-highlight'), 3000);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
